@@ -1,4 +1,4 @@
-package com.justinoboyle.pibase.webserver;
+package com.justinoboyle.pibase.core.webserver.java;
 
 import java.io.BufferedReader;
 import java.io.IOException;

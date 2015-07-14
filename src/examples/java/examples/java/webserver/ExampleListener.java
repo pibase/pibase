@@ -1,4 +1,4 @@
-package examples.webserver;
+package examples.java.webserver;
 
 import com.justinoboyle.pibase.core.java.server.listener.ServerRequestListener;
 import com.justinoboyle.pibase.core.java.server.packet.PacketIncoming;

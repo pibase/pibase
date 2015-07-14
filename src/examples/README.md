@@ -1,0 +1,1 @@
+Examples are not compile-safe and should be read as what they are, examples.

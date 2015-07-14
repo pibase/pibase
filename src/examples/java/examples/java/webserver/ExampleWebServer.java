@@ -1,6 +1,6 @@
-package examples.webserver;
+package examples.java.webserver;
 
-import com.justinoboyle.pibase.webserver.WebServer;
+import com.justinoboyle.pibase.core.webserver.java.WebServer;
 
 public class ExampleWebServer {
 
