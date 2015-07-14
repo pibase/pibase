@@ -3,6 +3,8 @@ package com.justinoboyle.pibase.core.java.server.packet;
 import com.justinoboyle.pibase.core.java.util.StatusCode;
 
 public class PacketOutgoing {
+    public static final String PASS_STRING = "Could not pass to any plugins.";
+    public static final PacketOutgoing PASS = new PacketOutgoing(StatusCode.NOT_FOUND, PASS_STRING, false);
 
     private StatusCode statusCode;
     private String responseString;
