@@ -37,7 +37,8 @@ public class IncomingPacketHandler extends Thread {
             PacketIncoming incoming = new PacketIncoming(client.getInetAddress(), httpMethod, httpQueryString);
             PacketOutgoing outgoing = ws.handler.listener.listen(incoming);
             sendResponse(outgoing.getStatusCode(), outgoing.getResponseString(), outgoing.isFile());
-               return;
+            
+            return;
         } catch (Exception localException) {
         }
     }

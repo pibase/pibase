@@ -22,6 +22,8 @@ public class PiBaseMain {
     private static WebServer frontend, backend;
     
     private static boolean shouldStayAlive = true;
+    
+    public static Collection<PiPlugin> plugins = null;
 
     public static void main(String[] args) {
         File fi = new File("./plugins/");
@@ -29,7 +31,7 @@ public class PiBaseMain {
         PluginManager pm = PluginManagerFactory.createPluginManager();
         pm.addPluginsFrom(fi.toURI());
         
-        Collection<PiPlugin> plugins = new PluginManagerUtil(pm).getPlugins(PiPlugin.class);
+        plugins = new PluginManagerUtil(pm).getPlugins(PiPlugin.class);
         
         for(PiPlugin p : plugins) {
             p.onEnable();

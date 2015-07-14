@@ -29,7 +29,8 @@ public class JarCopyUtil {
             int readBytes;
             byte[] buffer = new byte[4096];
             jarFolder = new File(exe.getProtectionDomain().getCodeSource().getLocation().toURI().getPath()).getParentFile().getPath().replace('\\', '/');
-            new File("./temp/" + pluginName + "/").mkdirs();
+            File f = new File("./temp/" + pluginName + "/" + resourceName);
+            f.getParentFile().mkdirs();
             resStreamOut = new FileOutputStream("./temp/" + exe.getName() + "/" + resourceName);
             while ((readBytes = stream.read(buffer)) > 0) {
                 resStreamOut.write(buffer, 0, readBytes);
