@@ -1,53 +1,70 @@
 package com.justinoboyle.pibase.core.java.server.packet;
 
+import java.net.InetAddress;
 import java.util.HashMap;
 import java.util.Map;
 
 import com.justinoboyle.pibase.core.java.util.UtilHTTP;
 
 public class PacketIncoming {
-    
-    private String from;
-    private String methodName;
+
+    private InetAddress from;
+    private String localMethodName;
     private Map<String, String> data;
-    
-    public PacketIncoming(String from, String methodName, Map<String, String> data) {
+    private String httpMethod;
+
+    public PacketIncoming(InetAddress from, String httpMethod, String localMethodName, Map<String, String> data) {
         super();
         this.from = from;
-        this.methodName = methodName;
+        this.localMethodName = localMethodName;
         this.data = data;
     }
-    
-    public PacketIncoming(String from, String methodData) {
+
+    public PacketIncoming(InetAddress from, String httpMethod, String localMethodData) {
         super();
         this.from = from;
-        this.methodName = methodData;
+        this.localMethodName = localMethodData;
+        this.httpMethod = httpMethod;
         data = new HashMap<String, String>();
-        if(!this.methodName.contains("?"))
+        localMethodName = localMethodData;
+        if (!this.localMethodName.contains("?"))
             return;
-        String[] split = methodData.split("?");
-        methodName = split[0];
-        for(String s : split[1].split("&"))
+        String[] split = localMethodData.split("?");
+        localMethodName = split[0];
+        for (String s : split[1].split("&"))
             data.put(UtilHTTP.decode(s.split("=")[0]), UtilHTTP.decode(s.split("=")[1]));
     }
-    
-    public String getFrom() {
+
+    public InetAddress getFrom() {
         return from;
     }
-    public void setFrom(String from) {
+
+    public void setFrom(InetAddress from) {
         this.from = from;
     }
-    public String getMethodName() {
-        return methodName;
-    }
-    public void setMethodName(String methodName) {
-        this.methodName = methodName;
-    }
+
     public Map<String, String> getData() {
         return data;
     }
+
     public void setData(Map<String, String> data) {
         this.data = data;
     }
-    
+
+    public String getLocalMethodName() {
+        return localMethodName;
+    }
+
+    public void setLocalMethodName(String localMethodName) {
+        this.localMethodName = localMethodName;
+    }
+
+    public String getHttpMethod() {
+        return httpMethod;
+    }
+
+    public void setHttpMethod(String httpMethod) {
+        this.httpMethod = httpMethod;
+    }
+
 }
