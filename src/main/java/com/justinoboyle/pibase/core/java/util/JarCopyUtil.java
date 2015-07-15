@@ -16,7 +16,7 @@ public class JarCopyUtil {
      * @return The path to the exported resource
      * @throws Exception
      */
-    static public String exportResource(Class exe, String pluginName, String resourceName) throws Exception {
+    static public String exportResource(Class<?> exe, String pluginName, String resourceName) throws Exception {
         InputStream stream = null;
         OutputStream resStreamOut = null;
         String jarFolder;

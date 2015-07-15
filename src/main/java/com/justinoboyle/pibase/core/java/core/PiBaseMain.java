@@ -13,7 +13,6 @@ import com.justinoboyle.pibase.backend.java.listener.BackendServerListener;
 import com.justinoboyle.pibase.core.commands.CommandInterpreter;
 import com.justinoboyle.pibase.core.java.plugin.PiPlugin;
 import com.justinoboyle.pibase.core.java.plugin.PiPluginManager;
-import com.justinoboyle.pibase.core.java.util.JarCopyUtil;
 import com.justinoboyle.pibase.core.webserver.java.WebServer;
 import com.justinoboyle.pibase.frontend.java.listener.FrontendServerListener;
 
