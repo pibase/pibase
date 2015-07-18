@@ -17,7 +17,7 @@ public class WebServer {
     private WebServerThread serverThread = null;
     public String ip = "";
     public ServerRequestListener listener;
-    public final int port;
+    public int port;
     
     public WebServer(int port, ServerRequestListener listener) {
         this.listener = listener;
