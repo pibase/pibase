@@ -14,9 +14,12 @@ public class WebServerThread extends Thread {
     public void run() {
         setup();
         while (running)
-            watchForConnection();
+            try {
+                watchForConnection();
+            } catch (Exception ex) {
+            }
     }
-    
+
     private void setup() {
         try {
             handler.socket = new ServerSocket(handler.port, 10, InetAddress.getByName("0"));

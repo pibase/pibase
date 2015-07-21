@@ -8,6 +8,7 @@ import java.util.Scanner;
 import com.justinoboyle.pibase.core.commands.CommandInterpreter;
 import com.justinoboyle.pibase.core.java.plugin.PiPlugin;
 import com.justinoboyle.pibase.core.java.plugin.PiPluginManager;
+import com.justinoboyle.pibase.core.java.util.UtilFile;
 
 import net.xeoh.plugins.base.PluginManager;
 import net.xeoh.plugins.base.impl.PluginManagerFactory;
@@ -25,9 +26,9 @@ public class PiBaseMain {
         System.out.println("Attempting to start...");
         File fi = new File("./plugins/");
         fi.mkdirs();
-        File f2 = new File("./temp/");
-        if (f2.exists())
-            f2.delete();
+        try {
+            UtilFile.delete(new File("./temp/"));
+        } catch (IOException e1) { }
         PluginManager pm = PluginManagerFactory.createPluginManager();
         pm.addPluginsFrom(fi.toURI());
 
@@ -53,6 +54,9 @@ public class PiBaseMain {
         System.out.println("Shutting down.");
         for (PiPlugin p : plugins)
             p.onDisable();
+        try {
+            UtilFile.delete(new File("./temp/"));
+        } catch (IOException e1) { }
 
     }
 

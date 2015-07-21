@@ -40,10 +40,10 @@ public class WebServer {
 
     public void disable() {
         try {
-            serverThread.interrupt();
-            serverThread.running = false;
-            serverThread = null;
             this.socket.close();
+            serverThread.running = false;
+            serverThread.interrupt();
+            serverThread = null;
         } catch (IOException localIOException) {
 
         }

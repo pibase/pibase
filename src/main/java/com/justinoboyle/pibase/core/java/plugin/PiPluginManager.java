@@ -16,7 +16,26 @@ import com.justinoboyle.pibase.core.java.util.JarCopyUtil;
 
 public class PiPluginManager {
 
-    
+    private static Map<String, PiPlugin> register = new HashMap<String, PiPlugin>();
+
+    public static boolean registerName(PiPlugin plugin, String name) {
+        name = name.toLowerCase();
+        if (name.startsWith("/"))
+            name = name.substring(1);
+        if (register.containsKey(name))
+            return false;
+        register.put(name, plugin);
+        return true;
+    }
+
+    public static PiPlugin getPlugin(String name) {
+        if (name.startsWith("/"))
+            name = name.substring(1);
+        name = name.toLowerCase();
+        if (!register.containsKey(name))
+            return null;
+        return register.get(name);
+    }
 
     // Thanks to user1079877 on
     // http://stackoverflow.com/questions/11012819/how-can-i-get-a-resource-folder-from-inside-my-jar-file
